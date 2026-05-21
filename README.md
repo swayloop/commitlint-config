@@ -21,7 +21,13 @@ module.exports = {
 `.husky/commit-msg`:
 
 ```sh
-npx --no -- commitlint --edit $1
+. node_modules/@swayloop/commitlint-config/hooks/commit-msg
+```
+
+`.husky/pre-push`:
+
+```sh
+. node_modules/@swayloop/commitlint-config/hooks/pre-push
 ```
 
 `package.json`:
@@ -33,6 +39,13 @@ npx --no -- commitlint --edit $1
   }
 }
 ```
+
+## 포함된 훅
+
+- **commit-msg** — Conventional Commits 검증
+- **pre-push** — 브랜치 네이밍 규칙 검증 (`<type>/<issue#>-<desc>`, main/dev 제외)
+
+훅 정책이 바뀌면 `pnpm update @swayloop/commitlint-config` 한 번이면 모든 레포에 적용.
 
 ## 규칙
 

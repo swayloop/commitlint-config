@@ -1,0 +1,26 @@
+# swayloop pre-push 훅 — 브랜치 네이밍 규칙 검증.
+#
+# 사용 (각 레포의 .husky/pre-push):
+#   . node_modules/@swayloop/commitlint-config/hooks/pre-push
+#
+# 규칙: <type>/<issue-number>-<short-description>
+#   type: feat, fix, refactor, docs, chore, test, perf, ci, style, build, revert
+#   예: feat/4-chat-history, fix/2-scraper-retry
+#
+# main, dev 브랜치는 검증 통과.
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$branch" = "main" ] || [ "$branch" = "dev" ]; then
+  exit 0
+fi
+
+pattern="^(feat|fix|refactor|docs|chore|test|perf|ci|style|build|revert)/[0-9]+-.*$"
+
+if ! echo "$branch" | grep -qE "$pattern"; then
+  echo "❌ 브랜치 네이밍 규칙 위반: $branch"
+  echo "   형식: <type>/<이슈번호>-<설명>"
+  echo "   예시: feat/4-chat-history, fix/2-scraper-retry"
+  echo "   허용 type: feat, fix, refactor, docs, chore, test, perf, ci, style, build, revert"
+  exit 1
+fi

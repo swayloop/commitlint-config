@@ -1,0 +1,6 @@
+# swayloop commit-msg 훅 — Conventional Commits 검증.
+#
+# 사용 (각 레포의 .husky/commit-msg):
+#   . node_modules/@swayloop/commitlint-config/hooks/commit-msg
+
+npx --no -- commitlint --edit "$1"
