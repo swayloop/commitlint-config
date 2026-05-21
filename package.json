@@ -1,12 +1,13 @@
 {
   "name": "@swayloop/commitlint-config",
-  "version": "0.1.0",
-  "description": "Shared commitlint config for swayloop org projects",
+  "version": "0.2.0",
+  "description": "Shared commitlint config and git hooks for swayloop org projects",
   "main": "index.js",
   "types": "index.d.ts",
   "files": [
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "hooks"
   ],
   "keywords": [
     "commitlint",
