@@ -1,0 +1,14 @@
+name: Release Please
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    uses: swayloop/.github/.github/workflows/release-please.yml@main
+    permissions:
+      contents: write
+      pull-requests: write
+    with:
+      release-type: node
