@@ -25,10 +25,25 @@
     "url": "https://github.com/swayloop/commitlint-config/issues"
   },
   "homepage": "https://github.com/swayloop/commitlint-config#readme",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "peerDependencies": {
     "@commitlint/config-conventional": ">=20"
   },
+  "prettier": "@swayloop/prettier-config",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@swayloop/eslint-config": "^1.0.0",
+    "@swayloop/prettier-config": "^1.0.0",
+    "eslint": "^9.18.0",
+    "prettier": "^3.4.0"
   }
 }
